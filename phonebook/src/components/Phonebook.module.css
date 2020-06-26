@@ -1,0 +1,95 @@
+dody {
+}
+.list {
+  padding: 15px;
+  list-style-type: circle;
+  padding: 10px;
+  margin-top: 0px;
+  line-height: 30px;
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0 auto;
+  width: 30%;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 5px 5px 0px rgb(0, 0, 0);
+}
+h2,
+h3 {
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+}
+.text {
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.button {
+  text-decoration: none;
+  display: flex;
+  border: none;
+  border-radius: 5%;
+  margin: 15px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(58, 101, 241);
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  box-shadow: 0px 5px 5px black;
+  text-align: center;
+  padding: 3px;
+  outline: none;
+}
+
+.button:hover {
+  box-shadow: none;
+  background-color: rgb(45, 224, 141);
+  cursor: pointer;
+}
+form {
+  display: flex;
+  width: 450px;
+  padding: 50px;
+  border-radius: 20px;
+  border: 15px groove rgb(159, 21, 238);
+  margin: 0 auto;
+}
+.label {
+  margin: 10px;
+  display: block;
+}
+.input {
+  margin-top: 10px;
+}
+.input:hover {
+  cursor: pointer;
+}
+.finder {
+  width: 350px;
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+.item {
+  padding: 15px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+}
+.input::placeholder {
+  color: rgb(175, 172, 172);
+  opacity: 1;
+}
