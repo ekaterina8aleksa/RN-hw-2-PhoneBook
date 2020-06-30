@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import shortid from "shortid";
+import { ToastContainer, toast } from "react-toastify";
 import ContactForm from "./components/ContactForm";
 import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
 import styles from "./components/Phonebook.module.css";
+import "react-toastify/dist/ReactToastify.css";
 
 class App extends Component {
   state = {
@@ -32,14 +34,19 @@ class App extends Component {
       (contact) =>
         contact.name.trim().toLowerCase() === name.trim().toLowerCase()
     );
-    const checkingTel = /^\d[\d\(\)\ -]{4,14}\d$/;
-    const validTel = checkingTel.test(number);
-
+    // const checkingTel = /^\d[\d\(\)\ -]{4,14}\d$/;
+    // const validTel = checkingTel.test(number);
+    const invalide = isNaN(number);
     if (isExist) {
-      return alert("This Name is already exist");
-    } else if (!validTel) {
-      return alert("This Phonenumber is incorrect");
+      toast.info(`${name} already exist (〒﹏〒) `); //alert("This Name is already exist");
+    } else if (name === " " || number === " ") {
+      toast.warn(`Fill the form, please ＼(°o°)／ `);
+      // } else if (!validTel) {
+      //     return toast.error(`This $(number) is not a valid phonenumber`); //alert("This Phonenumber is incorrect");
+    } else if (invalide) {
+      toast.info(`${number} is invalide phone number 乁( •_• )ㄏ `);
     } else {
+      toast.success(" (๑˙❥˙๑) You added new contact!");
       this.setState(({ contacts }) => ({
         contacts: [readyContact, ...contacts],
       }));
@@ -74,6 +81,7 @@ class App extends Component {
 
     return (
       <>
+        <ToastContainer />
         <ContactForm
           onSubmit={this.formListener}
           onAddContact={this.addContact}
@@ -83,13 +91,15 @@ class App extends Component {
           <Filter value={filter} onChange={this.changeFilter} />
         )}
 
-        {contacts.length > 0 ? (
+        {visibleContacts.length > 0 ? (
           <ContactList
             contacts={visibleContacts}
             onDeleteContact={this.deleteContact}
           />
-        ) : (
+        ) : contacts.length === 0 ? (
           <p className={styles.text}>There are no contacts</p>
+        ) : (
+          <p className={styles.text}>Didn't find any contacts</p>
         )}
       </>
     );

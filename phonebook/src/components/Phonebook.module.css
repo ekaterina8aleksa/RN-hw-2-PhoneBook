@@ -30,7 +30,7 @@ h3 {
   width: 450px;
   display: flex;
   justify-content: center;
-  margin: auto;
+  margin: 10px auto;
 }
 .button {
   text-decoration: none;
@@ -92,4 +92,7 @@ form {
 .input::placeholder {
   color: rgb(175, 172, 172);
   opacity: 1;
+}
+.hidden {
+  display: none;
 }
